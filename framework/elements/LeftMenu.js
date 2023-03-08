@@ -8,14 +8,23 @@ export default class {
       }
 
     get () {
-        return this.page.locator('#QuickLinks')
+        return this.page.locator('#SidebarContent')
     };
 
     async selectCategory(categoryName) {
         const menu = await this.get();
-        await menu.locator(`xpath=//a[img[@src = "../images/sm_${categoryName}.gif"]]`).click()
+        await menu.locator(`xpath=//a[img[@src = "../images/${categoryName}_icon.gif"]]`).click()
         return this
+      };
+
+    async getMenuDescripnion() {
+        const menu = await this.get();
+        const menuDescription = await menu.textContent()
+        return menuDescription
     }
-  
+
+
+
+
 
 }

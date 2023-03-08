@@ -1,10 +1,6 @@
 const { test, expect } = require('@playwright/test');
 import * as app from '../framework'
 
-const urls = {
-  baseUrl: 'https://petstore.octoperf.com/actions/Catalog.action',
-}
-
 
 test('has title', async ({ page }) => {
   const basePage = new app.page.BasePage(page);
@@ -18,7 +14,7 @@ test('has title', async ({ page }) => {
 test('check sign in link', async ({ page }) => {
   const basePage = new app.page.BasePage(page);
   const menu = new app.element.SignInMenu(page);
-  basePage.pageUrl = urls.baseUrl
+  basePage.pageUrl = app.config.urls.baseUrl
   await basePage.visit()
 
   // Click a sign in link

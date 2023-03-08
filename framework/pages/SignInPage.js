@@ -1,9 +1,10 @@
 import { expect } from '@playwright/test';
-import BasePage from './BasePage'
+import BasePage from './BasePage';
+import { urls } from '../config';
 
 export default class extends BasePage {
 
-  pageUrl = 'https://petstore.octoperf.com/actions/Account.action?signonForm='
+    pageUrl = urls.signInUrl
 
   async filllogin (login) {
     const field = await this.page.locator('input[name="username"]')
@@ -33,7 +34,7 @@ export default class extends BasePage {
     await this.filllogin(username)
     await this.fillPassword(password)
     await this.submit()
-    await expect(this.page).toHaveURL('https://petstore.octoperf.com/actions/Catalog.action')
+    await expect(this.page).toHaveURL(urls.baseUrl)
   }
 
   async getErrormess () {

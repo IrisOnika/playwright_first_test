@@ -18,6 +18,13 @@ export default class {
         return this
       };
 
+    async clickMyAccount() {
+        const menu = await this.get();
+        await menu.getByRole('link', {name: 'My Account' }).click()
+
+        return this
+      };
+
     async getMenuContent() {
         const menu = await this.get();
         const menuText = await menu.locator('xpath=//a[2]').textContent()
