@@ -40,7 +40,7 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: jest-html-report
+        folder: playwright-report
         clean: true
         token: ${{ secrets.GHUB_TOKEN }}
           
