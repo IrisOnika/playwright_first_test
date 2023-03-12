@@ -1,9 +1,10 @@
-name: Playwright Tests
+name: Tests Reports etc
 on:
+  workflow_dispatch:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 jobs:
   test:
     timeout-minutes: 60
