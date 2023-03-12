@@ -37,9 +37,10 @@ jobs:
           Repository: ${{ github.repository }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
           
-    - name: HTML Preview
-      id: html_preview
-      uses: pavi2410/html-preview-action@v2
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        html_file: 'index.html'
+        folder: jest-html-report
+        clean: true
+        token: ${{ secrets.GHUB_TOKEN }}
           
