@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 import * as app from '../framework'
 
 
-for (const data of app.config.quickLinksData) {
+for (const data of app.data.quickLinksData) {
 
   test('check menu url for ' + data[0], async ({ page }) => {
     const basePage = new app.page.BasePage(page);

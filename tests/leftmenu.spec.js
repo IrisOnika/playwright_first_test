@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 import * as app from '../framework'
 
 
-for (const data of app.config.quickLinksData) {
+for (const data of app.data.quickLinksData) {
 
   test('check menu url for ' + data[0], async ({ page }) => {
     const basePage = new app.page.BasePage(page);
@@ -16,17 +16,6 @@ for (const data of app.config.quickLinksData) {
   })
 };
 
-const menuDescr = ` 
-Saltwater, Freshwater 
- 
-Various Breeds 
- 
-Various Breeds, Exotic Varieties 
- 
-Lizards, Turtles, Snakes 
- 
-Exotic Varieties`
-
 test('check menu content ', async ({ page }) => {
     const basePage = new app.page.BasePage(page);
     basePage.pageUrl = app.config.urls.baseUrl
@@ -35,5 +24,5 @@ test('check menu content ', async ({ page }) => {
 
     const menuDescription = await leftMenu.getMenuDescripnion()
 
-    await expect(menuDescription).toEqual(menuDescr)
+    await expect(menuDescription).toEqual(app.data.content.menuDescr)
   })

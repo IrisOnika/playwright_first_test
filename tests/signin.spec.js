@@ -4,7 +4,7 @@ import * as app from '../framework'
 
 test('has title', async ({ page }) => {
   const basePage = new app.page.BasePage(page);
-  basePage.pageUrl = urls.baseUrl
+  basePage.pageUrl = app.config.urls.baseUrl
   await basePage.visit()
 
   // Expect a title "to contain" a substring.

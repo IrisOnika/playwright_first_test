@@ -1,4 +1,22 @@
 export default {
     baseUrl: 'https://petstore.octoperf.com/actions/Catalog.action',
-    signInUrl: 'https://petstore.octoperf.com/actions/Account.action?signonForm='
+    baseUrl_: /.*petstore.octoperf.com\/actions\/Catalog.action/,
+    signInUrl: 'https://petstore.octoperf.com/actions/Account.action?signonForm=',
+    accountUrl_: /.*petstore.octoperf.com\/actions\/Account.action/,
+    categoryUrl: 'https://petstore.octoperf.com/actions/Catalog.action?viewCategory=&categoryId=',
+    categoryUrl_: /.*viewCategory=&categoryId=/,
+    categoryUrlFish_: /.*viewCategory=&categoryId=FISH/,
+    categoryUrlDogs_: /.*viewCategory=&categoryId=DOGS/,
+    categoryUrlReptiles_: /.*viewCategory=&categoryId=REPTILES/,
+    categoryUrlCats_: /.*viewCategory=&categoryId=CATS/,
+    categoryUrlBirds_: /.*viewCategory=&categoryId=BIRDS/,
+    productUrl: 'https://petstore.octoperf.com/actions/Catalog.action?viewProduct=&productId=',
+    productUrl_: /.*viewProduct=&productId=/,
+    productUrlfish01_: /.*viewProduct=&productId=FI-FW-01/,
+    productUrlDogs01_: /.*viewProduct=&productId=K9-BD-01/,
+    productUrlReptiles01_: /.*viewProduct=&productId=RP-SN-01/,
+    productUrlCats01_: /.*viewProduct=&productId=FL-DSH-01/,
+    productUrlBirds01_: /.*viewProduct=&productId=AV-CB-01/,
+    itemUrl: 'https://petstore.octoperf.com/actions/Catalog.action?viewItem=&itemId=',
+    viewCardUrl: 'https://petstore.octoperf.com/actions/Cart.action?viewCart='
   }
