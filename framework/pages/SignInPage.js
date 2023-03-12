@@ -33,7 +33,7 @@ export default class extends BasePage {
     await this.filllogin(username)
     await this.fillPassword(password)
     await this.submit()
-    await expect(this.page).toHaveURL(urls.accountUrl_)
+    await expect(this.page).toHaveURL(urls.baseUrl)
   }
 
   async getErrormess () {
