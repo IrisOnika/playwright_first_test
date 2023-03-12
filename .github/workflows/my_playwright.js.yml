@@ -24,7 +24,7 @@ jobs:
       if: always()
       with:
         name: playwright-report
-        path: playwright-report/index.html
+        path: playwright-report/
         retention-days: 5
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
@@ -36,3 +36,26 @@ jobs:
           Commit message: ${{ github.event.commits[0].message }}
           Repository: ${{ github.repository }}
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          
+    - name: Get test results history
+      uses: actions/checkout@v3
+      if: always()
+      continue-on-error: true
+      with:
+       ref: gh-pages
+       path: gh-pages
+    - name: Get t
+      uses: PavanMudigonda/html-reporter-github-pages@v1.0
+      id: test-report
+      with:
+        test_results: playwright-report
+        gh_pages: gh-pages
+        results_history: results-history
+    - name: Publish Github Pages
+      if: ${{ always() }}
+      uses: peaceiris/actions-gh-pages@v3.8.0
+      with:
+        github_token: ${{ secrets.GHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: results-history
+        keep_files: true 
