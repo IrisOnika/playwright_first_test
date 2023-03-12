@@ -42,5 +42,5 @@ jobs:
       with:
         folder: playwright-report
         clean: true
-        token: ${{ secrets.GHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
           
